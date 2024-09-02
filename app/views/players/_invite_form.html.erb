@@ -1,0 +1,5 @@
+<%= simple_form_for [game, player] do |f| %>
+  <h5 class="text-center"><%= f.association :user, label_method: :email, placeholder: "Selecione uma pessoa" %> </h5>
+
+  <%= f.submit "Convidar Jogador" %>
+<% end %>
