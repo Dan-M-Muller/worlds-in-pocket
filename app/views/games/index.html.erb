@@ -1,0 +1,23 @@
+<h1>Todos os grupos de jogos</h1>
+<hr>
+
+<div class="container">
+  <ul class="list-group">
+    <% @games.each do |g| %>
+      <li class="list-group-items">
+        <div class="card mb-3">
+          <div class="card-header">
+            <h4><%= link_to g.name, game_path(g) %></h4>
+          </div>
+          <div class="card-body">
+            <p><%= g.description %></p>
+          </div>
+          <div class="card-footer">
+            <p>Classificação: <%= g.pg %></p>
+            <p>Narrador: <%= g.user.nick_name %></p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
