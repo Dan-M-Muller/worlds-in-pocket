@@ -1,0 +1,9 @@
+<%= simple_form_for game do |f| %>
+  <%= f.input :name, placeholder: "Nome da Campanha" %>
+  <%= f.input :description, placeholder: "Breve descrição..." %>
+  <%= f.input :system, placeholder: "Sistema de jogo" %>
+  <%= f.input :lfp?, placeholder: "Tornar o jogo público?" %>
+  <%= f.input :online?, placeholder: "Sessões Online?" %>
+  <%= f.input :pg, placeholder: "Idade minima" %>
+  <%= f.submit %>
+<% end %>
