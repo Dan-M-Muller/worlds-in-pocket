@@ -2,12 +2,22 @@
 <hr>
 
 <div class="container">
-  <ul>
+  <ul class="list-group">
     <% @games.each do |g| %>
-      <div class="card mb-3">
-        <div class="card-header">
-
+      <li class="list-group-items">
+        <div class="card mb-3">
+          <div class="card-header">
+            <h4><%= link_to g.name, game_path(g) %></h4>
+          </div>
+          <div class="card-body">
+            <p><%= g.description %></p>
+          </div>
+          <div class="card-footer">
+            <p>Classificação: <%= g.pg %></p>
+            <p>Narrador: <%= g.user.nick_name %></p>
+          </div>
         </div>
-      </div>
+      </li>
+    <% end %>
   </ul>
 </div>

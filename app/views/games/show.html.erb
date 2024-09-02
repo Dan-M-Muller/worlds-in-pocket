@@ -10,7 +10,9 @@
     <% end %>
     </div>
   </div>
-  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#inviteModal">Convidar para este jogo</button>
+  <% if current_user == @game.user %>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#inviteModal">Convidar para este jogo</button>
+  <% end %>
 </div>
 
 
