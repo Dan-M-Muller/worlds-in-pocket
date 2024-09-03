@@ -18,7 +18,7 @@
         <% @user.games.each do |g| %>
           <div class="card card-bls mb-3">
             <div class="card-header">
-              <h4 class="card-title"><%= g.name %></h4>
+              <h4 class="card-title"><%= link_to g.name, game_path(g) %></h4>
             </div>
             <div class="card-body">
               <p><%= g.description %></p>

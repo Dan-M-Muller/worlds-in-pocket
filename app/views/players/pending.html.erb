@@ -1,0 +1,10 @@
+<h1>Convites Pendentes</h1>
+
+<% @players.each do |p| %>
+  <p><%= p.game.user.first_name %> Te convidou para o grupo <%= p.game.name %></p>
+  <%= link_to "Aceitar",  accept_player_path(p), class: "btn",  data: {turbo_method: :patch} %>
+  <%= link_to "Rejeitar",
+          player_path(p),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "btn btn-warning"%>
+<% end %>
