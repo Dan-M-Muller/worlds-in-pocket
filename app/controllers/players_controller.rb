@@ -25,7 +25,8 @@ class PlayersController < ApplicationController
   def destroy
     @game = @player.game
     @player.destroy
-    redirect_to game_path(@game), status: :see_other
+    redirect_back fallback_location: '/'
+    # redirect_to game_path(@game), status: :see_other
   end
 
 
