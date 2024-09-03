@@ -10,7 +10,7 @@
       <% @game.players.each do |p|%>
       <h5 class="card-title"><%= p.user.nick_name %> (<%= p.user.first_name %>)</h5>
         <%= link_to "Delete",
-          players_destroy_path(p),
+          player_path(p),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
           class: "btn btn-warning"
         %>
@@ -35,7 +35,8 @@
         <%= render "players/invite_form", game: @game, player: @player %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Convidar</button>
+        <%=  invite_game_url %>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>

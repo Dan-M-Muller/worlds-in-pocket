@@ -5,7 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable;
 
   has_many :games, dependent: :destroy
+  has_many :players, dependent: :destroy
 
   validates :first_name, :last_name, :nick_name, :age, presence: :true
 
+  def pending_players
+    players.where(accepted: false)
+  end
+
+  def pending?
+    pending_players.count.positive?
+  end
 end
