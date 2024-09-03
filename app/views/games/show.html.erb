@@ -5,8 +5,15 @@
     <hr>
   <div class="card mt-3 mb-3">
     <div class="card-header">
+      <div class="container mt-3">
+      </div>
       <% @game.players.each do |p|%>
       <h5 class="card-title"><%= p.user.nick_name %> (<%= p.user.first_name %>)</h5>
+        <%= link_to "Delete",
+          players_destroy_path(p),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "btn btn-warning"
+        %>
     <% end %>
     </div>
   </div>

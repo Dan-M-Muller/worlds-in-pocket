@@ -11,6 +11,13 @@ class PlayersController < ApplicationController
     end
   end
 
+  def destroy
+    @player = Player.find(params[:id])
+    @game = @player.game
+    @player.destroy
+    redirect_to game_path(@game), status: :see_other
+  end
+
 
   private
 
