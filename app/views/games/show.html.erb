@@ -8,7 +8,11 @@
       <div class="container mt-3">
       </div>
       <% @game.players.each do |p|%>
-      <h5 class="card-title"><%= p.user.nick_name %> (<%= p.user.first_name %>)</h5>
+        <h5 class="card-title"><%= p.user.nick_name %> (<%= p.user.first_name %>)
+          <% if p.accepted == false %>
+            [Ainda não aceitou o convite]
+          <% end %>
+        </h5>
         <%= link_to "Delete",
           player_path(p),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
