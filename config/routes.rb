@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  # root to: "devise/sessions#new"
+  # 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :games do
@@ -19,7 +21,10 @@ Rails.application.routes.draw do
     member do
       patch :accept
     end
+    resources :friendships, only: %i[new create]
   end
+
+  resources :friendships, only: %i[index destroy]
 
 
   # delete "players/:id", to: "players#destroy", as: "players_destroy"

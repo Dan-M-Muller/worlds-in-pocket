@@ -5,7 +5,6 @@ class PlayersController < ApplicationController
     @game = Game.find(params[:game_id])
     @player = Player.new(player_params)
     @player.game = @game
-    # @player.accepted = false
 
     if @player.save
       redirect_to game_path(@game)
@@ -26,7 +25,6 @@ class PlayersController < ApplicationController
     @game = @player.game
     @player.destroy
     redirect_back fallback_location: '/'
-    # redirect_to game_path(@game), status: :see_other
   end
 
 

@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :games, dependent: :destroy
   has_many :players, dependent: :destroy
+  has_many :friendships_as_asker, class_name: "Friendship", foreign_key: :asker_id, dependent: :destroy
+  has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id, dependent: :destroy
 
   validates :first_name, :last_name, :nick_name, :age, presence: :true
 
@@ -15,5 +17,13 @@ class User < ApplicationRecord
 
   def pending?
     pending_players.count.positive?
+  end
+
+  def pending_friends
+    receiver.where(accepted: false)
+  end
+
+  def requests?
+    pending_friends.count.positive?
   end
 end
