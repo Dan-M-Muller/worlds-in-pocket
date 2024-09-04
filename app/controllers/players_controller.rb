@@ -13,6 +13,7 @@ class PlayersController < ApplicationController
 
   def pending
     @players = current_user.pending_players
+    @friends = current_user.requests
   end
 
   def accept

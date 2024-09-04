@@ -30,7 +30,11 @@ Rails.application.routes.draw do
     resources :friendships, only: %i[index new create]
   end
 
-  resources :friendships, only: %i[destroy]
+  resources :friendships, only: %i[destroy] do
+    member do
+      patch :accept
+    end
+  end
 
 
   # delete "players/:id", to: "players#destroy", as: "players_destroy"

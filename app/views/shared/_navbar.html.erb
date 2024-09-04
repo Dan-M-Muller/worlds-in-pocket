@@ -16,7 +16,7 @@
           </li>
           <li class="nav-item active">
             <%= link_to pending_players_path, class: "nav-link"  do %>
-              <% if current_user.pending? %>
+              <% if current_user.pending? || current_user.requests? %>
                 <i class="fa-solid fa-circle-exclamation"></i>
               <% end %>
                 Notificações

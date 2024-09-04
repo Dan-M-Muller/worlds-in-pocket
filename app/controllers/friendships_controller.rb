@@ -1,4 +1,5 @@
 class FriendshipsController < ApplicationController
+  before_action :set_friendship, only: %i[accept destroy]
 
   def index
     @users = User.all
@@ -25,8 +26,22 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def accept
+    @friendship.accepted = true
+    @friendship.save
+    redirect_to pending_players_path
+  end
+
+  def destroy
+    @friendship.destroy
+    redirect_back fallback_location: '/'
+  end
+
   private
 
+  def set_friendship
+    @friendship = Friendship.find(params[:id])
+  end
 
   # def friend_params
   #   params.require(:friendship).permit(:asker_id, :receiver_id, :accepted)
