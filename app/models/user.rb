@@ -11,6 +11,13 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :nick_name, :age, presence: :true
 
+  include PgSearch::Model
+  pg_search_scope :search_users,
+    against: [ :email, :nick_name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def pending_players
     players.where(accepted: false)
   end
@@ -20,10 +27,30 @@ class User < ApplicationRecord
   end
 
   def pending_friends
-    receiver.where(accepted: false)
+    friendships_as_asker.where(accepted: false)
+  end
+
+  def requests
+    friendships_as_receiver.where(accepted: false)
   end
 
   def requests?
-    pending_friends.count.positive?
+    requests.count.positive?
+  end
+
+  def accepted?
+
+  end
+
+  def friends
+    friendships = Friendship.all
+    @map = []
+    friendships.map do |f|
+      if f.accepted == true
+        @map << f
+      end
+    end
+    return @map
+    # raise
   end
 end
