@@ -19,11 +19,21 @@
           <li class="list-group-item">
             <h5><%= f.receiver.nick_name %></h5>
             <p><%= f.receiver.first_name %> <%= f.receiver.last_name %></p>
+            <%= link_to "Excluir Amigo",
+                  friendship_path(f),
+                  data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
+                  class: "btn btn-warning" %>
           </li>
         <% end %>
         <% if current_user == f.receiver %>
-          <h5><%= f.asker.nick_name %></h5>
-          <p><%= f.asker.first_name %> <%= f.receiver.last_name %></p>
+          <li class="list-group-item">
+            <h5><%= f.asker.nick_name %></h5>
+            <p><%= f.asker.first_name %> <%= f.receiver.last_name %></p>
+            <%= link_to "Excluir Amigo",
+                  friendship_path(f),
+                  data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
+                  class: "btn btn-warning" %>
+          </li>
         <% end %>
       <% end %>
     </ul>
