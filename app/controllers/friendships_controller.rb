@@ -13,7 +13,7 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    # strong params: revisar pq não ta salvando
+    # BUG: - friends_params não retorna nada - strong params: revisar pq não ta salvando
     @asker = current_user
     @receiver = User.find(params[:user_id])
     @friendship = Friendship.new()

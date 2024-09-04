@@ -38,10 +38,6 @@ class User < ApplicationRecord
     requests.count.positive?
   end
 
-  def accepted?
-
-  end
-
   def friends
     friendships = Friendship.all
     @map = []

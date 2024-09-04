@@ -49,7 +49,7 @@
       </div>
       <div class="modal-body">
         <%= form_with url: user_friendships_path(current_user), method: :get, class: "d-flex mb-3 src" do %>
-        <%# paty sugeriu de fazer com turbo stream e dar o replace com o que vier do querry %>
+        <%# BUG: -querry fecha modal- paty sugeriu de fazer com turbo stream e dar o replace com o que vier do querry %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
