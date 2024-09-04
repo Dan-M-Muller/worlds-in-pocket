@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+
+
+
   root to: "pages#home"
+  # root to: "devise/sessions#new"
+  #
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :games do
@@ -10,12 +15,22 @@ Rails.application.routes.draw do
     resources :players, only: %i[new create]
   end
 
-  resource :profiles, only: %i[show edit]
+  resources :profiles, only: %i[show edit]
 
   resources :players, only: %i[destroy] do
     collection do
       get :pending
     end
+    member do
+      patch :accept
+    end
+  end
+
+  resources :users do
+    resources :friendships, only: %i[index new create]
+  end
+
+  resources :friendships, only: %i[destroy] do
     member do
       patch :accept
     end
