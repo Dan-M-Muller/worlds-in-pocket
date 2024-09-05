@@ -1,0 +1,30 @@
+.banner {
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #A7B1C1;
+  background-size: cover;
+  background-position: center;
+  
+  h1 {
+    color: #5A5D74;
+    font-weight: bold;
+    font-size: 45px;
+  }
+
+  p {
+    color: white;
+    opacity: .8;
+    font-size: 25px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+  }
+
+  .btn {
+    padding: 15px 50px;
+    border-radius: 15px;
+    background-color: #7906A5;
+    text-decoration: #E9E9E9;
+  }
+}
