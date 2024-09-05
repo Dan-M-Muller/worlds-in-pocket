@@ -1,0 +1,74 @@
+<h1>Meus amigos</h1>
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#requestModal">Novo Amigo</button>
+<hr>
+
+<div class="container">
+  <h3>Solicitações pendentes</h5>
+  <% @pending.each do |pf| %>
+    <ul class="list-group">
+    <% if pf.accepted == false %>
+      <li class="list-group-item"><h5><%= pf.receiver.nick_name %></h5> <p>(<%= pf.receiver.email %>)</p></li>
+    <% end %>
+    </ul>
+  <% end %>
+  <hr>
+  <h3>Minhas amizades</h3>
+    <ul class="list-group">
+      <% @friends.each do |f| %>
+        <% if current_user == f.asker %>
+          <li class="list-group-item">
+            <h5><%= f.receiver.nick_name %></h5>
+            <p><%= f.receiver.first_name %> <%= f.receiver.last_name %></p>
+            <%= link_to "Excluir Amigo",
+                  friendship_path(f),
+                  data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
+                  class: "btn btn-warning" %>
+          </li>
+        <% end %>
+        <% if current_user == f.receiver %>
+          <li class="list-group-item">
+            <h5><%= f.asker.nick_name %></h5>
+            <p><%= f.asker.first_name %> <%= f.receiver.last_name %></p>
+            <%= link_to "Excluir Amigo",
+                  friendship_path(f),
+                  data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
+                  class: "btn btn-warning" %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+</div>
+
+<%# MODAL %>
+<div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestModalLabel">Envie um convite para...</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with url: user_friendships_path(current_user), method: :get, class: "d-flex mb-3 src" do %>
+        <%# BUG: -querry fecha modal- paty sugeriu de fazer com turbo stream e dar o replace com o que vier do querry %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Digite o nick ou email da pessoa"%>
+          <%= submit_tag "Buscar", name: "", class: "btn btn-flat" %>
+        <% end %>
+        <div class="card">
+          <div class="cars-body">
+            <ul class="list-group">
+              <% @users.each do |u|%>
+                <li class="list-group-item"><%= button_to u.email, user_friendships_path(u), method: :post, class: "friend-list" %> </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary ml-3" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
