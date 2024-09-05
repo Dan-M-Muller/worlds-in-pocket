@@ -1,6 +1,9 @@
-<div class="container mt-3">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+<%= content_for(:navbar_class, "navbar-home") %>
 
-  <%= link_to "Index", games_path,  class: "btn" %>
-</div>
+  <div class="banner">
+    <div class="banner-content text-center">
+      <h1>Bem vindo ao W.i.P</h1>
+      <h2>O lugar aonde você com certeza irá jogar!</h2>
+      <%= link_to "Index", games_path,  class: "btn btn-primary"  %>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+.card-header{
+  a {
+    text-decoration: none;
+    color: $cold-high;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 40px;
+}
