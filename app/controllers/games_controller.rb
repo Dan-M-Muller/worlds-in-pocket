@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
   end
+
   def show
     @player = Player.new
   end
@@ -22,6 +23,16 @@ class GamesController < ApplicationController
     end
   end
 
+  def edit
+    @game = Game.find(params[:id])
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    @game.update(game_params)
+
+    redirect_to game_path(@game)
+  end
 
   private
 

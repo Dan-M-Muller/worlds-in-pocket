@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     member do
       get :invite
     end
-    resources :players, only: %i[new create]
+    resources :players, only: %i[new create ]
   end
 
   resource :profiles, only: %i[show edit]
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :games, only: %i[edit update]
 
   # delete "players/:id", to: "players#destroy", as: "players_destroy"
 

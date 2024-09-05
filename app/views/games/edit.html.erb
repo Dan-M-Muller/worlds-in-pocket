@@ -1,0 +1,16 @@
+<div class="container mt-3">
+  <%= form_with model: @restaurant do |f| %>
+    Name: <%= @game.name %>
+    <p></p>
+    <%= f.label :new_name %>
+    <%= f.text_field :name %>
+    <p></p>
+    Description: <%= @game.description %>
+    <p></p>
+    <%= f.label :new_description %>
+    <%= f.text_field :description %>
+    <div class="container mt-3">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
