@@ -1,0 +1,16 @@
+<div class="container mt-3">
+  <%= simple_form_for(@game) do |f| %>
+    <%= @game.name %>
+    <p></p>
+    <%= f.label :new_name %>
+    <%= f.text_field :name %>
+    <p></p>
+    <%= @game.description %>
+    <p></p>
+    <%= f.label :new_description %>
+    <%= f.text_field :description %>
+    <div class="container mt-3">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
