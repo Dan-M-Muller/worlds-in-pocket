@@ -1,11 +1,11 @@
 <div class="container mt-3">
-  <%= form_with model: @restaurant do |f| %>
-    Name: <%= @game.name %>
+  <%= simple_form_for(@game) do |f| %>
+    <%= @game.name %>
     <p></p>
     <%= f.label :new_name %>
     <%= f.text_field :name %>
     <p></p>
-    Description: <%= @game.description %>
+    <%= @game.description %>
     <p></p>
     <%= f.label :new_description %>
     <%= f.text_field :description %>

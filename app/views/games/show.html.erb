@@ -3,10 +3,12 @@
   <h3><%= @game.description %></h3>
   <h4>Narrador: <%= @game.user.nick_name %></h4>
     <hr>
-  <%= link_to "Edit",
-          edit_game_path(@game),
-          class: "btn btn-primary"
-        %>
+  <% if @game.user == current_user %>
+    <%= link_to "Edit",
+            edit_game_path(@game),
+            class: "btn btn-primary"
+          %>
+  <% end %>
   <div class="card mt-3 mb-3">
     <div class="card-header">
       <div class="container mt-3">
