@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-  before_action :set_friendship, only: %i[accept destroy]
+  before_action :set_friendship, only: %i[accept destroy show]
 
   def index
     @users = User.all
@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
 
     @pending = current_user.pending_friends
     @friends = current_user.friends
-    # raise
+    
   end
 
   def create
@@ -20,10 +20,13 @@ class FriendshipsController < ApplicationController
     @friendship.asker = @asker
     @friendship.receiver = @receiver
     if @friendship.save
-      # raise
       # alerta de "convite enviado"
       redirect_back fallback_location: '/'
     end
+  end
+
+  def show
+    @friendship_message = FriendshipMessage.new
   end
 
   def accept
@@ -36,6 +39,8 @@ class FriendshipsController < ApplicationController
     @friendship.destroy
     redirect_back fallback_location: '/'
   end
+
+
 
   private
 

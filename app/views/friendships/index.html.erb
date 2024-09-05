@@ -2,7 +2,7 @@
 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#requestModal">Novo Amigo</button>
 <hr>
 
-<div class="container">
+<div class="container" data-controller="chat">
   <h3>Solicitações pendentes</h5>
   <% @pending.each do |pf| %>
     <ul class="list-group">
@@ -13,7 +13,7 @@
   <% end %>
   <hr>
   <h3>Minhas amizades</h3>
-    <ul class="list-group">
+    <ul class="list-group" data-controller="chat">
       <% @friends.each do |f| %>
         <% if current_user == f.asker %>
           <li class="list-group-item">
@@ -23,9 +23,9 @@
                   friendship_path(f),
                   data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
                   class: "btn btn-warning" %>
+            <button type="button" class="btn btn-secondary" data-controller="chat" data-chat-other-value=<%=f.receiver.nick_name%> data-action="click->chat#chatBox">Conversar</button>
           </li>
-        <% end %>
-        <% if current_user == f.receiver %>
+        <% else %>
           <li class="list-group-item">
             <h5><%= f.asker.nick_name %></h5>
             <p><%= f.asker.first_name %> <%= f.receiver.last_name %></p>
@@ -33,13 +33,21 @@
                   friendship_path(f),
                   data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
                   class: "btn btn-warning" %>
+            <button type="button" class="btn btn-secondary" data-controller="chat" data-chat-other-value=<%=f.asker.nick_name%> data-action="click->chat#chatBox">Conversar</button>
           </li>
         <% end %>
       <% end %>
     </ul>
+  <div class="container">
+    <h5 id="nickHeader" data-chat-target="messageBox">AQUI</h5>
+    <hr>
+    <%# Nome da pessoa %>
+    <%# content %>
+    <%# input %> <%# send %>
+  </div>
 </div>
 
-<%# MODAL %>
+<%# MODAL ADD FRIEND %>
 <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -72,3 +80,5 @@
     </div>
   </div>
 </div>
+
+<%# CHAT %>

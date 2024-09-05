@@ -1,0 +1,22 @@
+<h1>Minhas conversas</h1>
+<hr>
+
+
+
+
+
+<%# Chat box %>
+<div class="container chat">
+  <h5>Conversa Ativa</h5>
+  <div id="messages" class="messages">
+    <% f.firend_messages.each do |m| %>
+      <div id="message-<%= m.id %>">
+        <small>
+          <strong><%= m.user.nick_name %></strong>
+          <i><%= m.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= m.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
