@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     member do
       get :invite
     end
-    resources :players, only: %i[new create]
+    resources :players, only: %i[new create ]
   end
 
   resources :profiles, only: %i[show edit]
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :games, only: %i[edit update]
   resources :users do
     resources :friendships, only: %i[index new create]
   end

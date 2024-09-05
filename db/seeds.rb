@@ -28,7 +28,7 @@ puts "criou user #{User.last.nick_name}"
 User.create!(email: 'superjuca@user.com', password: '123456', first_name: 'Juliaozao', last_name: 'Balaozao', age: 51, nick_name: Faker::Games::DnD.unique.first_name)
 puts "criou user #{User.last.nick_name}"
 
-User.create!(email: 'jusi@user.com', password: '123456', first_name: 'Julia', last_name: 'Balah', age: 29, nick_name: Faker::Faker::Games::DnD.unique.first_name)
+User.create!(email: 'jusi@user.com', password: '123456', first_name: 'Julia', last_name: 'Balah', age: 29, nick_name: Faker::Games::DnD.unique.first_name)
 puts "criou user #{User.last.nick_name}"
 
 User.create!(email: "juvbargao@emailreal.confia", password: '123456', first_name: "Juvenal", last_name: "Borga", age: 13, nick_name: Faker::Games::Pokemon.unique.name)
