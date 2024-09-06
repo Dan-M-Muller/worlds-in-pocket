@@ -6,14 +6,14 @@ export default class extends Controller {
   connect() {
 
     const currentUserId = parseInt(document.body.dataset.currentUserId, 10);
-    console.log(this.userIdValue);
-    console.log(currentUserId);
+    // console.log(this.userIdValue);
+    // console.log(currentUserId);
     if (this.userIdValue === currentUserId) {
-        console.log("oi do sent");
+        // console.log("oi do sent");
         this.element.classList.add('sent');
         this.element.classList.remove('received');
       } else {
-        console.log("oi do received");
+        // console.log("oi do received");
         this.element.classList.add('received');
         this.element.classList.remove('sent');
       }
