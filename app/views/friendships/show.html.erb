@@ -1,0 +1,24 @@
+<div class="container chat">
+  <% other_user = current_user == @friendship.receiver ? @friendship.asker : @friendship.receiver %>
+  <h1>Sussuros para <%= other_user.nick_name %></h1>
+
+  <%= turbo_stream_from "friendship_#{@friendship.id}_messages" %>
+  <div id="messages" class="messages">
+    <% @friendship.friendship_messages.each do |message| %>
+      <%= render "friendship_messages/message", friendship_message: message, user: current_user %>
+    <% end %>
+  </div>
+
+    <%# BUG: mensagem enviada e recebida bugam no display - Ambas aparecem no mesmo lugar %>
+  <%= simple_form_for [@friendship, @friendship_message],
+    html: {class: "d-flex",
+           data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
+  %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Converse com #{other_user.nick_name}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Enviar", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>
