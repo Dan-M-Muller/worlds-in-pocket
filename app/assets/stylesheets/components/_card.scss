@@ -7,8 +7,16 @@
   }
 }
 
+.card-footer{
+  a {
+    text-align: justify;
+    color: $cold-light;
+  }
+}
+
 .card-grid{
   display: grid;
   grid-template-columns: repeat(2, 2fr);
   gap: 40px;
+  text-align: justify;
 }

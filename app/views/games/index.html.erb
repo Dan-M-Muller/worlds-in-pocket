@@ -2,7 +2,7 @@
   <h1>Todos os grupos de jogos</h1>
   <hr>
 
-  <div class="container">
+  <div class="container" style="width: 60rem;">
     <div class="card-grid">
       <% @games.each do |g| %>
         <div class="">
@@ -14,8 +14,8 @@
               <p><%= g.description %></p>
             </div>
             <div class="card-footer">
-              <p>Classificação: <%= g.pg %></p>
-              <p>Narrador: <%= g.user.nick_name %></p>
+              Classificação: <%= g.pg %>
+              Narrador: <%= g.user.nick_name %>
             </div>
           </div>
         </div>

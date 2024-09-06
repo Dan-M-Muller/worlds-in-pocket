@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-3">
   <h1><%= @game.name %></h1>
   <h3><%= @game.description %></h3>
   <h4>Narrador: <%= @game.user.nick_name %></h4>
@@ -9,7 +9,7 @@
             class: "btn btn-primary"
           %>
   <% end %>
-  <div class="card mt-3 mb-3">
+  <div class="card mt-3 mb-3" style="width: 50rem;">
     <div class="card-header">
       <div class="container mt-3">
       </div>
@@ -30,7 +30,9 @@
   <% if current_user == @game.user %>
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#inviteModal">Convidar para este jogo</button>
   <% end %>
+    <%= link_to "Voltar", games_path,  class: "btn btn-primary"  %>
 </div>
+
 
 
 <%# MODAL %>
