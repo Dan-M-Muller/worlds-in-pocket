@@ -19,11 +19,12 @@
             [Ainda não aceitou o convite]
           <% end %>
         </h5>
-        <%= link_to "Delete",
-          player_path(p),
+        <%= link_to player_path(p),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-          class: "btn btn-warning"
-        %>
+          class: "bt-icon-danger",
+          alt: "Delete Button" do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %>
     <% end %>
     </div>
   </div>

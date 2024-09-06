@@ -1,6 +1,8 @@
-<h1>Meus amigos</h1>
-<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#requestModal">Novo Amigo</button>
-<hr>
+<div>
+  <h1>Meus amigos</h1>
+  <button type="button" class="btn-ghost" data-bs-toggle="modal" data-bs-target="#requestModal">Novo Amigo</button>
+  <hr>
+</div>
 
 <div class="container" data-controller="chat">
   <h3>Solicitações pendentes</h5>
@@ -19,21 +21,33 @@
           <li class="list-group-item">
             <h5><%= f.receiver.nick_name %></h5>
             <p><%= f.receiver.first_name %> <%= f.receiver.last_name %></p>
-            <%= link_to "Excluir Amigo",
-                  friendship_path(f),
+            <%= link_to friendship_path(f),
                   data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
-                  class: "btn btn-warning" %>
-            <%= link_to "Conversar", friendship_path(f), class: "btn btn-secondary" %>
+                  class: "bt-icon-danger",
+                  alt: "Excluir Amigo" do %>
+            <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+            <%= link_to friendship_path(f),
+            class: "bt-icon-flat",
+            alt: "Iniciar conversa" do %>
+              <i class="fa-solid fa-comments"></i>
+            <% end %>
           </li>
         <% else %>
           <li class="list-group-item">
             <h5><%= f.asker.nick_name %></h5>
             <p><%= f.asker.first_name %> <%= f.receiver.last_name %></p>
-            <%= link_to "Excluir Amigo",
-                  friendship_path(f),
+            <%= link_to friendship_path(f),
                   data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
-                  class: "btn btn-warning" %>
-            <%= link_to "Conversar", friendship_path(f), class: "btn btn-secondary" %>
+                  class: "bt-icon-danger",
+                  alt: "Excluir Amigo" do %>
+            <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+            <%= link_to friendship_path(f),
+              class: "bt-icon-flat",
+              alt: "Iniciar conversa" do %>
+                <i class="fa-solid fa-comments"></i>
+            <% end %>
           </li>
         <% end %>
       <% end %>
@@ -54,7 +68,7 @@
             params[:query],
             class: "form-control",
             placeholder: "Digite o nick ou email da pessoa"%>
-          <%= submit_tag "Buscar", name: "", class: "btn btn-flat" %>
+          <%= submit_tag "Buscar", name: "", class: "btn-flat" %>
         <% end %>
         <div class="card">
           <div class="cars-body">
@@ -67,7 +81,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary ml-3" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn-ghost-fill ml-3" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>

@@ -41,13 +41,13 @@
         <br>
         <div class="container mb-4">
           <p class="card-text">Email atual: <%= @user.email %></p>
-          <%= link_to "Edite seu email", "#", class: "btn btn-secondary" %>
+          <%= link_to "Edite seu email", "#", class: "btn-ghost" %>
         </div>
         <div class="container mb-4">
           <p>Nome completo : <%= @user.first_name %> <%= @user.last_name %></p>
-          <%= link_to "Mude seu nome", "#", class: "btn btn-secondary" %>
+          <%= link_to "Mude seu nome", "#", class: "btn-ghost" %>
         </div>
-        <p><%= link_to "Atualize sua senha", "#", class: "btn btn-secondary" %></p>
+        <p><%= link_to "Atualize sua senha", "#", class: "btn-ghost" %></p>
       </div>
     </div>
   </div>
@@ -60,5 +60,5 @@
 
 
 <div class="container">
-    <%= link_to "Voltar", root_path, class: "btn btn-primary" %>
+    <%= link_to "Voltar", root_path, class: "btn btn-flat" %>
 </div>
