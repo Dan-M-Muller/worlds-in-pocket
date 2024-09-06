@@ -1,9 +1,9 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 
-  <div class="banner">
-    <div class="banner-content text-center">
-      <h1>Bem vindo ao W.i.P</h1>
-      <h2>O lugar aonde você com certeza irá jogar!</h2>
-      <%= link_to "Index", games_path,  class: "btn btn-primary"  %>
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('homeimg.jpg') %>);">
+  <div class="container">
+    <h1>Bem vindos ao <strong>World in Pocket</strong>!</h1>
+    <p>O lugar aonde você com certeza irá jogar!</p>
+    <%= link_to "Todos os jogos", games_path, class: "btn btn-primary" %>
   </div>
+</div>

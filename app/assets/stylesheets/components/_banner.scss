@@ -1,36 +1,21 @@
 .banner {
-  height: 500px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-image: url('images/homeimg.jpg');
-  background-color: #A7B1C1;
   background-size: cover;
   background-position: center;
+  padding: 200px 0;
+  text-align: center;
+}
 
-  h1 {
-    color: #5A5D74;
-    font-weight: bold;
-    font-size: 45px;
-  }
+.banner h1 {
+  margin: 0;
+  color: $light-1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
 
-  p {
-    color: white;
-    opacity: .8;
-    font-size: 25px;
-    font-weight: lighter;
-    margin-bottom: 30px;
-  }
-
-  .btn {
-    padding: 10px 30px;
-    border-radius: 15px;
-    background-color: #7906A5;
-    text-decoration: #E9E9E9;
-  }
-
-  .btn:hover {
-    background-color: #AD0042;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  }
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
