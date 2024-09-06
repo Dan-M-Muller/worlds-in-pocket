@@ -9,7 +9,9 @@
 }
 
 .btn-ghost:hover {
-  opacity: 1;
+  background: $warm-dark;
+  color: $white;
+  opacity: 0.7;
 }
 
 .btn-ghost-fill {
@@ -28,15 +30,15 @@
 }
 
 .btn-flat {
-  color: $dark-1;
+  color: $white;
   padding: 8px 24px;
   border-radius: 15px;
-  background: $cold-high;
+  background: $cold-dark;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: $cold-dark;
+  background: $cold-high;
   color: $white;
 }
 
@@ -57,11 +59,11 @@
 
 .btn-index {
   color: $white;
-  padding-top: 14px;
+  padding-top: 8px;
   padding-bottom: 10px;
   padding-right: 24px;
   padding-left: 24px;
-  border-radius: 4px;
+  border-radius: 5px;
   background: linear-gradient($cold-dark, $cold-high);
   transition: background 0.3s ease;
 }
@@ -69,4 +71,35 @@
 .btn-index:hover {
   background: linear-gradient($cold-light, $cold-dark);
   color: #F1F7ED;
+}
+
+.btn-danger {
+  color: $white;
+  background: $red;
+  padding: 8px 24px;
+  border-radius: 15px;
+  transition: background 0.3s ease;
+}
+
+.btn-danger:hover {
+  background: $warm-high;
+  color: $white;
+}
+
+.bt-icon-danger {
+  background: none;
+  color: $red;
+}
+.bt-icon-danger:hover {
+  background: none;
+  color: $warm-high;
+}
+
+.bt-icon-flat {
+  background: none;
+  color: $cold-dark;
+}
+.bt-icon-flat:hover {
+  background: none;
+  color: $cold-high;
 }

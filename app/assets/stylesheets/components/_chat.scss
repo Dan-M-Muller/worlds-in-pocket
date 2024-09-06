@@ -42,13 +42,14 @@
 
   .message.sent .message-content {
     align-self: flex-start;
-    background: $blue;
+    background: $cold-high;
     color: $light-gray;
   }
 
   .message.received .message-content {
     align-self: flex-end;
     background: $gray-200;
+    color: $dark-1;
   }
 
   #new_message {
