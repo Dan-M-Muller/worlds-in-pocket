@@ -1,22 +1,23 @@
-<h1>Minhas conversas</h1>
-<hr>
-
-
-
-
-
-<%# Chat box %>
 <div class="container chat">
-  <h5>Conversa Ativa</h5>
+  <h1>Conversas entre <%= @friendship.receiver.nick_name %> e <%= @friendship.asker.nick_name %></h1>
+
+  <%= turbo_stream_from "friendship_#{@friendship.id}_messages" %>
   <div id="messages" class="messages">
-    <% f.firend_messages.each do |m| %>
-      <div id="message-<%= m.id %>">
-        <small>
-          <strong><%= m.user.nick_name %></strong>
-          <i><%= m.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= m.content %></p>
-      </div>
+    <% @friendship.friendship_messages.each do |message| %>
+      <%= render "friendship_messages/message", friendship_message: message, user: current_user %>
     <% end %>
   </div>
+
+  <%= simple_form_for [@friendship, @friendship_message],
+    html: {class: "d-flex",
+           data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
+  %>
+    <% other_user = current_user == @friendship.receiver ? @friendship.asker : @friendship.receiver %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message #{other_user.nick_name}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
 </div>

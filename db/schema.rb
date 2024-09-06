@@ -24,8 +24,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_05_150152) do
     t.datetime "updated_at", null: false
     t.text "content"
     t.bigint "user_id"
-    t.bigint "friendships_id"
-    t.index ["friendships_id"], name: "index_friendship_messages_on_friendships_id"
+    t.bigint "friendship_id"
+    t.index ["friendship_id"], name: "index_friendship_messages_on_friendship_id"
     t.index ["user_id"], name: "index_friendship_messages_on_user_id"
   end
 
@@ -98,7 +98,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_05_150152) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "friendship_messages", "friendships", column: "friendships_id"
+  add_foreign_key "friendship_messages", "friendships"
   add_foreign_key "friendship_messages", "users"
   add_foreign_key "friendships", "users", column: "asker_id"
   add_foreign_key "friendships", "users", column: "receiver_id"

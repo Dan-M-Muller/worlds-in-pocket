@@ -23,7 +23,7 @@
                   friendship_path(f),
                   data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
                   class: "btn btn-warning" %>
-            <button type="button" class="btn btn-secondary" data-controller="chat" data-chat-other-value=<%=f.receiver.nick_name%> data-action="click->chat#chatBox" data-bs-toggle="modal" data-bs-target="#chatModal">Conversar</button>
+            <%= link_to "Conversar", friendship_path(f), class: "btn btn-secondary" %>
           </li>
         <% else %>
           <li class="list-group-item">
@@ -33,7 +33,7 @@
                   friendship_path(f),
                   data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
                   class: "btn btn-warning" %>
-            <button type="button" class="btn btn-secondary" data-controller="chat" data-chat-other-value=<%=f.asker.nick_name%> data-action="click->chat#chatBox" data-bs-toggle="modal" data-bs-target="#chatModal">Conversar</button>
+            <%= link_to "Conversar", friendship_path(f), class: "btn btn-secondary" %>
           </li>
         <% end %>
       <% end %>
