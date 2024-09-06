@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :players, dependent: :destroy
   has_many :friendships_as_asker, class_name: "Friendship", foreign_key: :asker_id, dependent: :destroy
   has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id, dependent: :destroy
-  has_many :friendship_messages
+  has_many :friendship_messages, dependent: :destroy
 
   validates :first_name, :last_name, :nick_name, :age, presence: :true
 
