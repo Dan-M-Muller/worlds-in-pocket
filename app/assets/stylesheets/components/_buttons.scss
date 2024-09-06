@@ -1,0 +1,72 @@
+.btn-ghost {
+  color: $warm-dark;
+  border: 1px solid $warm-dark;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.btn-ghost-fill {
+  color: $white;
+  border: 1px solid $warm-dark;
+  background: $warm-dark;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost-fill:hover {
+  opacity: 1;
+}
+
+.btn-flat {
+  color: $dark-1;
+  padding: 8px 24px;
+  border-radius: 15px;
+  background: $cold-high;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: $cold-dark;
+  color: $white;
+}
+
+.btn-gradient {
+  color: $white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: linear-gradient($cold-dark, $cold-high);
+  transition: background 0.3s ease;
+  border: 1px solid $cold-dark;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient($cold-high, $cold-high);
+  color: $dark-1;
+}
+
+.btn-index {
+  color: $white;
+  padding-top: 14px;
+  padding-bottom: 10px;
+  padding-right: 24px;
+  padding-left: 24px;
+  border-radius: 4px;
+  background: linear-gradient($cold-dark, $cold-high);
+  transition: background 0.3s ease;
+}
+
+.btn-index:hover {
+  background: linear-gradient($cold-light, $cold-dark);
+  color: #F1F7ED;
+}
