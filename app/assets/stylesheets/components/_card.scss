@@ -4,13 +4,7 @@
     color: $cold-high;
     font-size: 20px;
     font-weight: bold;
-  }
-}
 
-.card-footer{
-  a {
-    text-align: justify;
-    color: $cold-light;
   }
 }
 
@@ -19,4 +13,12 @@
   grid-template-columns: repeat(2, 2fr);
   gap: 40px;
   text-align: justify;
+
+  .card-footer{
+    color: $dark-2;
+  }
+
+  .text-item{
+    margin: 0 30px;
+  }
 }
