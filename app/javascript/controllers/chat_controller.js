@@ -6,7 +6,7 @@ export default class extends Controller {
   static values = {other: String}
 
   connect() {
-    console.log("Oi do controller");
+    // console.log("Oi do controller");
   }
 
   chatBox() {
