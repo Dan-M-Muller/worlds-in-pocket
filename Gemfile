@@ -58,7 +58,8 @@ gem "cloudinary"
 gem 'faker'
 gem "actioncable-enhanced-postgresql-adapter"
 gem "ruby-openai"
-gem "solid_queue"
+gem "solid_queue", "~> 0.7.1"
+gem "mission_control-jobs"
 
 group :development, :test do
   gem "dotenv-rails"
