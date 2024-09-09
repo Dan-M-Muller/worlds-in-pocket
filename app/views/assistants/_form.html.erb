@@ -1,0 +1,9 @@
+<%= simple_form_for assistant, html: { data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
+  <div class="input-group mb-3 w-100">
+    <div class="form-floating">
+      <%= f.input :question, label: false, wrapper: false %>
+      <%= f.label :question, "Pergunte para o mago da 4ª Parede" %>
+    </div>
+    <%= f.submit "Perguntar", id: "new-question-button", class: "btn-flat" %>
+  </div>
+<% end %>
