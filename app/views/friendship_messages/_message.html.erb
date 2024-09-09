@@ -2,7 +2,7 @@
     id="friendship_message-<%= friendship_message.id %>"
 
     class="message <%= friendship_message.user === user ? 'sent' : 'received' %>"
-    data-controller="friendship-message"
+    data-controller="message"
     data-chat-target="friendship-message-content"
     data-friendship-message-user-id-value="<%= friendship_message.user.id %>">
 

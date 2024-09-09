@@ -1,0 +1,15 @@
+<div
+    id="game_message-<%= game_message.id %>"
+
+    class="message <%= game_message.user === user ? 'sent' : 'received' %>"
+    data-controller="message"
+    data-chat-target="game-message-content"
+    data-friendship-message-user-id-value="<%= game_message.user.id %>">
+
+  <small class="message-info">
+    <strong><%= game_message.user.nick_name %></strong>
+    <i><%= game_message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <p class="message-content"><%= game_message.content %></p>
+
+</div>

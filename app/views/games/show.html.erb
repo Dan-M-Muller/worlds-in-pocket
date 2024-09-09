@@ -2,6 +2,7 @@
   <h1><%= @game.name %></h1>
   <h3><%= @game.description %></h3>
   <h4>Narrador: <%= @game.user.nick_name %></h4>
+  <%= link_to "Conversas", chat_game_path(@game), class: "btn-flat" %>
     <hr>
   <% if @game.user == current_user %>
     <%= link_to "Edit",
@@ -17,6 +18,9 @@
         <h5 class="card-title"><%= p.user.nick_name %> (<%= p.user.first_name %>)
           <% if p.accepted == false %>
             [Ainda não aceitou o convite]
+          <% end %>
+          <% if p.user == p.game.user %>
+            {GM}
           <% end %>
         </h5>
         <% if current_user == @game.user %>
