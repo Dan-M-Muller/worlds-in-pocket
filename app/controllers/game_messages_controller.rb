@@ -1,10 +1,11 @@
 class GameMessagesController < ApplicationController
 
   def create
-    @game = Game.find(params[:id])
     @message = GameMessage.new(message_params)
+    @game = Game.find(params[:game_id])
     @message.game = @game
     @message.user = current_user
+    # raise
     if @message.save
       respond_to do |format|
         format.turbo_stream do

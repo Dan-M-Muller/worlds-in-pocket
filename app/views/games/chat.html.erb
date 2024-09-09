@@ -1,8 +1,5 @@
-<h1>meu chat</h1>
-
 <div class="container chat">
-  <% other_user = current_user == @game.user ? @game.player.user : @game.user %>
-  <h1>Sussurros para <%= @game.name %></h1>
+  <h1>Acampamento <%= @game.name %></h1>
 
   <%= turbo_stream_from "game_#{@game.id}_messages" %>
   <div id="g-messages" class="messages">
