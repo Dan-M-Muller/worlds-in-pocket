@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id, dependent: :destroy
   has_many :friendship_messages, dependent: :destroy
   has_many :game_messages, dependent: :destroy
+  has_one_attached :photo
 
   validates :first_name, :last_name, :nick_name, :age, presence: :true
 
