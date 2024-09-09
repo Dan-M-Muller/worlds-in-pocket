@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_09_134127) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_09_180047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assistants", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "question"
+    t.text "answer"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_assistants_on_user_id"
+  end
 
   create_table "cards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -98,6 +107,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_134127) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assistants", "users"
   add_foreign_key "friendship_messages", "friendships"
   add_foreign_key "friendship_messages", "users"
   add_foreign_key "friendships", "users", column: "asker_id"
