@@ -1,0 +1,22 @@
+<div class="container chat">
+  <h1>Acampamento <%= @game.name %></h1>
+
+  <%= turbo_stream_from "game_#{@game.id}_messages" %>
+  <div id="g-messages" class="messages">
+    <% @game.game_messages.each do |message| %>
+      <%= render "game_messages/message", game_message: message, user: current_user %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@game, @game_message],
+    html: {class: "d-flex",
+           data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
+  %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Conversas em #{@game.name}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Enviar", class: "btn-flat mb-3" %>
+  <% end %>
+</div>

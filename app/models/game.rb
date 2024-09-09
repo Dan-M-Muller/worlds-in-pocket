@@ -4,4 +4,11 @@ class Game < ApplicationRecord
   has_many :game_messages, dependent: :destroy
 
   validates :name, :pg, :system, presence: :true
+
+  after_create_commit :add_user_to_player
+
+  private
+  def add_user_to_player
+    Player.create!(user: user, game: self, accepted: true)
+  end
 end

@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[show]
+  before_action :set_game, only: %i[show chat]
 
   def index
     @games = Game.all
@@ -11,6 +11,10 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new()
+  end
+
+  def chat
+    @game_message = GameMessage.new
   end
 
   def create

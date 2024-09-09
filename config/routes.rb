@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :games do
     member do
       get :invite
+      get :chat
     end
     resources :players, only: %i[new create]
     resources :game_messages, only: %i[create]
