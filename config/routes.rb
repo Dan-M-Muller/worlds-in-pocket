@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-
+  mount MissionControl::Jobs::Engine, at: "/jobs"
 
 
   root to: "pages#home"
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :friendship_messages, only: %i[create]
   end
 
+  resources :assistants, only: [:index, :create]
 
   # delete "players/:id", to: "players#destroy", as: "players_destroy"
 
