@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_09_192458) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_10_153316) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_192458) do
     t.boolean "lfp?"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "friendship_message_id"
+    t.bigint "game_message_id"
+    t.bigint "friendship_id"
+    t.bigint "player_id"
+    t.index ["friendship_id"], name: "index_notifications_on_friendship_id"
+    t.index ["friendship_message_id"], name: "index_notifications_on_friendship_message_id"
+    t.index ["game_message_id"], name: "index_notifications_on_game_message_id"
+    t.index ["player_id"], name: "index_notifications_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -236,6 +249,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_192458) do
   add_foreign_key "game_messages", "games"
   add_foreign_key "game_messages", "users"
   add_foreign_key "games", "users"
+  add_foreign_key "notifications", "friendship_messages"
+  add_foreign_key "notifications", "friendships"
+  add_foreign_key "notifications", "game_messages"
+  add_foreign_key "notifications", "players"
   add_foreign_key "players", "games"
   add_foreign_key "players", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

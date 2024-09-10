@@ -13,6 +13,7 @@ class FriendshipMessagesController < ApplicationController
         end
         format.html { redirect_to friendship_path(@friendship) }
       end
+      @notification = Notification.create(friendship_message: @message)
     else
       render "friendships/show", status: :unprocessable_entity
     end
