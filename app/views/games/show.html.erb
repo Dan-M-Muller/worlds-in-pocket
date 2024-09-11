@@ -37,7 +37,7 @@
             <i class="fa-solid fa-trash-can"></i>
           <% end %>
         <% end %>
-    <% end %>
+      <% end %>
     </div>
   </div>
   <% if current_user == @game.user %>
@@ -45,8 +45,7 @@
     <%= link_to "Deletar este Grupo",
       game_path(@game),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class: "btn-danger"
-    %>
+      class: "btn-danger" %>
   <% end %>
     <%= link_to "Voltar", games_path,  class: "btn-ghost"  %>
 </div>
