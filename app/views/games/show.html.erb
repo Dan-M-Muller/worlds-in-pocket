@@ -14,12 +14,6 @@
     <%= link_to "Conversas", chat_game_path(@game), class: "btn-gradient" %>
     <%= link_to "Assistente", assistants_path, class: "btn-index" %>
   <% end %>
-  <% if @game.user == current_user %>
-    <%= link_to "Edit",
-            edit_game_path(@game),
-            class: "btn-ghost"
-          %>
-  <% end %>
     <hr>
   <div class="card mt-3 mb-3" style="width: 50rem;">
     <div class="card-header">
