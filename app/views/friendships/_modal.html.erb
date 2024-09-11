@@ -1,0 +1,18 @@
+<%= turbo_frame_tag "friendship_modal" do %>
+  <%= form_with url: user_friendships_path(current_user), method: :get, class: "d-flex mb-3 src", data: {turbo_stream: true} do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Digite o nick ou email da pessoa"%>
+    <%= submit_tag "Buscar", name: "", class: "btn-flat" %>
+  <% end %>
+  <div class="card">
+    <div class="card-body">
+      <ul class="list-group" id="searched-users">
+        <% users.each do |u|%>
+          <li class="list-group-item"><%= button_to u.email, user_friendships_path(u), method: :post, class: "friend-list", data: {turbo: false} %> </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
