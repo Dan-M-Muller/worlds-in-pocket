@@ -1,6 +1,7 @@
 <div class="container chat">
   <% other_user = current_user == @friendship.receiver ? @friendship.asker : @friendship.receiver %>
   <h1>Sussurros para <%= other_user.nick_name %></h1>
+  <%= link_to "Voltar", :back, class: "btn btn-flat" %>
 
   <%= turbo_stream_from "friendship_#{@friendship.id}_messages" %>
   <div id="messages" class="messages">

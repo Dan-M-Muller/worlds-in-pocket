@@ -62,23 +62,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= form_with url: user_friendships_path(current_user), method: :get, class: "d-flex mb-3 src" do %>
-        <%# BUG: -querry fecha modal- paty sugeriu de fazer com turbo stream e dar o replace com o que vier do querry %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Digite o nick ou email da pessoa"%>
-          <%= submit_tag "Buscar", name: "", class: "btn-flat" %>
-        <% end %>
-        <div class="card">
-          <div class="cars-body">
-            <ul class="list-group">
-              <% @users.each do |u|%>
-                <li class="list-group-item"><%= button_to u.email, user_friendships_path(u), method: :post, class: "friend-list" %> </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
+        <%= render "modal", users: @users %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-ghost-fill ml-3" data-bs-dismiss="modal">Fechar</button>
@@ -86,6 +70,7 @@
     </div>
   </div>
 </div>
+
 
 <%# CHAT MODAL V-centered + scroll%>
 <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
