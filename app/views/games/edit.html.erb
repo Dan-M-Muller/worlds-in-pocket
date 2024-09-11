@@ -1,16 +1,7 @@
 <div class="container mt-4">
   <%= simple_form_for(@game) do |f| %>
-    <%= @game.name %>
-    <p></p>
-    <%= f.label :new_name %>
-    <%= f.text_field :name %>
-    <p></p>
-    <%= @game.description %>
-    <p></p>
-    <%= f.label :new_description %>
-    <%= f.input :description %>
-    <div class="container mt-3">
-      <%= f.button :submit, class: "btn btn-ghost" %>
-    </div>
+    <%= f.input :name, label: "New Name:", placeholder: @game.name %>
+    <%= f.input :description, label: "New Description:", placeholder: @game.description %>
+    <%= f.button :submit, class: "btn btn-ghost m-2" %>
   <% end %>
 </div>

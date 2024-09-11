@@ -1,5 +1,6 @@
 <div class="container mt-4">
   <%= simple_form_for @user, url: profile_path(@user), method: :patch do |f| %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :nick_name, label: "New Nick Name:", placeholder: @user.nick_name %>
     <%= f.input :email, label: "New Email:", placeholder: @user.email %>
     <%= f.button :submit, class: "btn btn-ghost m-2" %>

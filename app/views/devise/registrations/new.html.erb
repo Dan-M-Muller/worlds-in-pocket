@@ -5,6 +5,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+      <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
       <%= f.input :nick_name %>
       <%= f.input :age %>
       <%= f.input :email,
