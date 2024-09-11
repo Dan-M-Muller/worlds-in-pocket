@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :game_messages, only: %i[create]
   end
 
-  resources :profiles, only: %i[show edit]
+  resources :profiles, only: %i[show edit update]
 
   resources :players, only: %i[destroy] do
     collection do
