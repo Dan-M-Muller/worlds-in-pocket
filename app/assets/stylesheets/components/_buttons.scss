@@ -1,28 +1,30 @@
 .btn-ghost {
-  color: $warm-dark;
-  border: 1px solid $warm-dark;
+  color: $cold-dark;
+  border: 1px solid $cold-dark;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-ghost:hover {
-  background: $warm-dark;
+  background: $cold-dark;
   color: $white;
   opacity: 0.7;
 }
 
 .btn-ghost-fill {
   color: $white;
-  border: 1px solid $warm-dark;
-  background: $warm-dark;
+  border: 1px solid $cold-dark;
+  background: $cold-dark;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 25px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-ghost-fill:hover {
@@ -35,6 +37,7 @@
   border-radius: 15px;
   background: $cold-dark;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-flat:hover {
@@ -45,32 +48,34 @@
 .btn-gradient {
   color: $white;
   padding: 8px 24px;
-  border-radius: 4px;
+  border-radius: 15px;
   font-weight: bold;
-  background: linear-gradient($cold-dark, $cold-high);
+  background: linear-gradient($cold-high, $cold-dark);
   transition: background 0.3s ease;
   border: 1px solid $cold-dark;
+  text-decoration: none;
 }
 
 .btn-gradient:hover {
-  background: linear-gradient($cold-high, $cold-high);
+  background: linear-gradient($cold-light, $cold-high);
   color: $dark-1;
 }
 
 .btn-index {
   color: $white;
-  padding-top: 8px;
-  padding-bottom: 10px;
-  padding-right: 24px;
-  padding-left: 24px;
-  border-radius: 5px;
-  background: linear-gradient($cold-dark, $cold-high);
+  padding-top: 4px;
+  padding-bottom: 5px;
+  padding-right: 12px;
+  padding-left: 12px;
+  border-radius: 15px;
+  background: linear-gradient($cold-high, $cold-dark);
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-index:hover {
   background: linear-gradient($cold-light, $cold-dark);
-  color: #F1F7ED;
+  color: $white;
 }
 
 .btn-danger {
@@ -79,6 +84,7 @@
   padding: 8px 24px;
   border-radius: 15px;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-danger:hover {
@@ -89,17 +95,19 @@
 .bt-icon-danger {
   background: none;
   color: $red;
+  text-decoration: none;
 }
 .bt-icon-danger:hover {
   background: none;
-  color: $warm-high;
+  color: $warm-light;
 }
 
 .bt-icon-flat {
   background: none;
-  color: $cold-dark;
+  color: $cold-high;
+  text-decoration: none;
 }
 .bt-icon-flat:hover {
   background: none;
-  color: $cold-high;
+  color: $cold-light;
 }

@@ -1,24 +1,34 @@
 <div class="container mt-3">
   <h1>Todos os grupos de jogos</h1>
+  <%= link_to "Voltar", :back, class: "btn btn-flat" %>
   <hr>
 
-  <div class="container" style="width: 60rem;">
-    <div class="card-grid">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
       <% @games.each do |g| %>
-        <div class="">
-          <div class="card mb-3">
-            <div class="card-header">
-              <%= link_to g.name, game_path(g) %>
-            </div>
-            <div class="card-body">
-              <p><%= g.description %></p>
-            </div>
-            <div class="card-footer" style="font-weight: 700">
-              <span class="text-item">Classificação: <%= g.pg %></span>
-              <span class="text-item">Narrador: <%= g.user.nick_name %></span>
+        <% if current_user.age >= g.pg %>
+          <div class="col">
+            <div class="card-trip mb-3">
+              <% if g.photo.attached? %>
+                <%= cl_image_tag g.photo.key, crop: :fill, class: "img-fit" %>
+              <% else %>
+                <%= image_tag "card-placeholder.jpeg" %>
+              <% end %>
+              <div class="game-header">
+                <h5><%= link_to g.name, game_path(g) %></h5>
+              </div>
+              <div class="card-trip-infos">
+                <div>
+                  <p><%= g.description %></p>
+                </div>
+                <div class="card-footer">
+                  <span class="text-item">Classificação: <%= g.pg %> anos</span>
+                  <span class="text-item">Narrador: <%= g.user.nick_name %></span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
