@@ -9,20 +9,26 @@ class FriendshipsController < ApplicationController
 
     @pending = current_user.pending_friends
     @friends = current_user.friends
-    
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("friendship_modal", partial: "friendships/modal",
+          locals: { users: @users })
+      end
+      format.html
+    end
   end
 
   def create
+    # raise
     # BUG: - friends_params não retorna nada - strong params: revisar pq não ta salvando
     @asker = current_user
     @receiver = User.find(params[:user_id])
     @friendship = Friendship.new()
     @friendship.asker = @asker
     @friendship.receiver = @receiver
-    if @friendship.save
+    @friendship.save!
       # alerta de "convite enviado"
-      redirect_back fallback_location: '/'
-    end
+    redirect_to user_friendships_path(current_user)
   end
 
   def show
