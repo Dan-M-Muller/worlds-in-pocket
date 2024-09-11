@@ -26,6 +26,59 @@ h5 {
   color: $cold-high;
 }
 
-i {
-  color: $red;
+h1 {
+  color: $cold-dark;
+}
+
+.card-trip {
+  border-radius: 25px;
+  overflow: hidden;
+  background: $white;
+  box-shadow: 0 0 15px $dark-shadow;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+.card-trip .card-trip-infos {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.game-header {
+  padding: 5px;
+  padding-left: 10px;
+}
+
+ul {
+  border: none;
+}
+
+.card {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: $cold-high;
+}
+a:hover {
+  color: $cold-light;
 }
