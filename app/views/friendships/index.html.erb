@@ -54,40 +54,42 @@
     </ul>
 
 <%# MODAL ADD FRIEND %>
-<div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="requestModalLabel">Envie um convite para...</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-        <div class="modal-body">
-            <%= form_with url: user_friendships_path(current_user), method: :get, class: "d-flex mb-3 src" do %>
-              <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Digite o nick ou email da pessoa"%>
-              <%= submit_tag "Buscar", name: "", class: "btn-flat" %>
-            <% end %>
-            <%#  Turbo Stream e dar o replace com o que vier do querry %>
-          <turbo-stream action="replace" target ="searched-users">
-            <div class="card">
-              <div class="card-body">
-                <ul class="list-group" id="searched-users">
-                  <% @users.each do |u|%>
-                    <li class="list-group-item"><%= button_to u.email, user_friendships_path(u), method: :post, class: "friend-list" %> </li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </turbo-stream>
+  <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="requestModalLabel">Envie um convite para...</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-ghost-fill ml-3" data-bs-dismiss="modal">Fechar</button>
+
+          <div class="modal-body">
+              <%= form_with url: user_friendships_path(current_user), method: :get, class: "d-flex mb-3 src" do %>
+                <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "Digite o nick ou email da pessoa"%>
+                <%= submit_tag "Buscar", name: "", class: "btn-flat" %>
+              <% end %>
+              <%#  Turbo Stream e dar o replace com o que vier do querry %>
+<%# <turbo-stream action="update" target ="searched-users"> %>
+              <div class="card">
+                <div class="card-body">
+                  <ul class="list-group" id="searched-users">
+                    <% @users.each do |u|%>
+                      <li class="list-group-item"><%= button_to u.email, user_friendships_path(u), method: :post, class: "friend-list" %> </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+          </div>
+<%# </turbo-stream> %>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-ghost-fill ml-3" data-bs-dismiss="modal">Fechar</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 <%# CHAT MODAL V-centered + scroll%>
 <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
