@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :assistants, dependent: :destroy
   has_one_attached :photo
 
-  validates :first_name, :last_name, :nick_name, :age, presence: :true
+  validates :nick_name, :age, presence: :true
 
   include PgSearch::Model
   pg_search_scope :search_users,
