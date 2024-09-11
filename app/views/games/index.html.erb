@@ -14,9 +14,11 @@
               <% else %>
                 <%= image_tag "card-placeholder.jpeg" %>
               <% end %>
+              <div class="game-header">
+                <h5><%= link_to g.name, game_path(g) %></h5>
+              </div>
               <div class="card-trip-infos">
                 <div>
-                  <h5><%= link_to g.name, game_path(g) %></h5>
                   <p><%= g.description %></p>
                 </div>
                 <div class="card-footer">
