@@ -7,6 +7,12 @@ class GamesController < ApplicationController
 
   def show
     @player = Player.new
+    @game_players = []
+    @game.players.each do |p|
+      @game_players << p.user_id
+    end
+    # raise
+    return @game_players
   end
 
   def new
