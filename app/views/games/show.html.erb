@@ -3,7 +3,7 @@
     <%= @game.name %>
     <% if @game.user == current_user %>
       <%= link_to edit_game_path(@game),
-              class: "btn-icon-flat" do %>
+      class: "btn-icon-flat" do %>
         <i class="fa-solid fa-gear"></i>
       <% end %>
     <% end %>
@@ -11,10 +11,9 @@
   <h3><%= @game.description %></h3>
   <h4>Narrador: <%= @game.user.nick_name %></h4>
   <% if current_user.id.in?(@game_players) %>
-    <%= link_to "Conversas", chat_game_path(@game), class: "btn-flat" %>
+    <%= link_to "Conversas", chat_game_path(@game), class: "btn-gradient" %>
     <%= link_to "Assistente", assistants_path, class: "btn-index" %>
-  <%= link_to "Conversas", chat_game_path(@game), class: "btn-gradient" %>
-    <hr>
+  <% end %>
   <% if @game.user == current_user %>
     <%= link_to "Edit",
             edit_game_path(@game),
@@ -48,8 +47,8 @@
     </div>
   </div>
   <% if current_user == @game.user %>
-    <button type="button" class="btn btn-flat" data-bs-toggle="modal" data-bs-target="#inviteModal">Convidar para este jogo</button>
-    <%= link_to "Delete",
+    <button type="button" class="btn btn-gradient" data-bs-toggle="modal" data-bs-target="#inviteModal">Convidar para este jogo</button>
+    <%= link_to "Delete este jogo",
       game_path(@game),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
       class: "btn btn-flat"
