@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <h1>Todos os grupos de jogos</h1>
-  <%= link_to "Voltar", :back, class: "btn btn-flat" %>
+  <%= link_to "Voltar", :back, class: "btn-ghost" %>
   <hr>
 
   <div class="container">
@@ -22,8 +22,8 @@
                   <p><%= g.description %></p>
                 </div>
                 <div class="card-footer">
-                  <span class="text-item">Classificação: <%= g.pg %> anos</span>
-                  <span class="text-item">Narrador: <%= g.user.nick_name %></span>
+                  <p class="text-item "> <strong class="wh"> Classificação: </strong> <%= g.pg %> anos</p>
+                  <p class="text-item"> <strong class="th"> Narrador: </strong> <%= g.user.nick_name %></p>
                 </div>
               </div>
             </div>
@@ -34,5 +34,5 @@
   </div>
 </div>
 <div class="container">
-    <%= link_to "Voltar", :back, class: "btn btn-flat" %>
+    <%= link_to "Voltar", :back, class: "btn-ghost" %>
 </div>
