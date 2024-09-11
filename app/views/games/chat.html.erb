@@ -1,6 +1,6 @@
 <div class="container chat">
   <h1>Acampamento <%= @game.name %></h1>
-  <%= link_to "Voltar", :back, class: "btn btn-flat" %>
+  <%= link_to "Voltar", :back, class: "btn-ghost" %>
   <%= turbo_stream_from "game_#{@game.id}_messages" %>
   <div id="g-messages" class="messages">
     <% @game.game_messages.each do |message| %>
