@@ -1,7 +1,6 @@
 <div class="container chat">
   <% other_user = current_user == @friendship.receiver ? @friendship.asker : @friendship.receiver %>
   <h1>Sussurros para <%= other_user.nick_name %></h1>
-  <%= link_to "Voltar", :back, class: "btn-ghost" %>
 
   <%= turbo_stream_from "friendship_#{@friendship.id}_messages" %>
   <div id="messages" class="messages">
@@ -22,4 +21,7 @@
     %>
     <%= f.submit "Enviar", class: "btn-flat mb-3" %>
   <% end %>
+  <div class="container m-3">
+    <%= link_to "Voltar", :back, class: "btn-ghost" %>
+  </div>
 </div>

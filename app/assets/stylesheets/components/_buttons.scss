@@ -9,6 +9,11 @@
   text-decoration: none;
 }
 
+.btn-ghost:hover {
+  background: $cold-dark;
+  color: $white;
+  opacity: 0.7;
+}
 .margin-l {
   margin-left: 20px;
 }
@@ -17,10 +22,8 @@
   margin-bottom: 20px;
 }
 
-.btn-ghost:hover {
-  background: $cold-dark;
-  color: $white;
-  opacity: 0.7;
+.margin-t {
+  margin-top: 20px;
 }
 
 .btn-ghost-fill {
@@ -102,11 +105,9 @@
   color: $warm-light;
 }
 
-
-
 .btn-danger {
   color: $white;
-  background: $red;
+  background: $warm-dark;
   padding: 8px 24px;
   border-radius: 15px;
   transition: background 0.3s ease;
@@ -114,7 +115,7 @@
 }
 
 .btn-danger:hover {
-  background: $warm-high;
+  background: $red;
   color: $white;
 }
 
