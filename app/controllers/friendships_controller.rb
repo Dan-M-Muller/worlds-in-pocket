@@ -5,17 +5,17 @@ class FriendshipsController < ApplicationController
     @users = User.all
     if params[:query].present?
       @users = User.search_users(params[:query])
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace("friendship_modal", partial: "friendships/modal",
+            locals: { users: @users })
+        end
+        format.html
+      end
     end
 
     @pending = current_user.pending_friends
     @friends = current_user.friends
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace("friendship_modal", partial: "friendships/modal",
-          locals: { users: @users })
-      end
-      format.html
-    end
   end
 
   def create
@@ -43,10 +43,9 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship.destroy
+    # raise
     redirect_to user_friendships_path(current_user)
   end
-
-
 
   private
 

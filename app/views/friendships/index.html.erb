@@ -1,17 +1,19 @@
 <div class="container mt-3">
   <h1>Meus amigos</h1>
-  <button type="button" class="btn-ghost" data-bs-toggle="modal" data-bs-target="#requestModal">Novo Amigo</button>
+  <button type="button" class="btn-index" data-bs-toggle="modal" data-bs-target="#requestModal"> <i class="fa-solid fa-plus"></i>Novo Amigo</button>
   <hr>
 </div>
 
 <div class="container" data-controller="chat">
-  <h3>Solicitações pendentes</h5>
+  <h3>Solicitações pendentes</h3>
   <% @pending.each do |pf| %>
     <ul class="list-group">
     <% if pf.accepted == false %>
-      <li class="list-group-item margin-b"><h5><%= pf.receiver.nick_name %></h5> <p>(<%= pf.receiver.email %>)</p>
+      <li class="list-group-item margin-b">
+        <h5><%= pf.receiver.nick_name %></h5>
+        <p>(<%= pf.receiver.email %>)</p>
         <%= link_to friendship_path(pf),
-                    data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
+                    data: { turbo_method: :delete, turbo_confirm: "Tem certeza?", data: {turbo: false}},
                     class: "bt-icon-danger",
                     alt: "Excluir Amigo" do %>
           <i class="fa-solid fa-trash-can"></i>
@@ -29,7 +31,7 @@
             <h5><%= f.receiver.nick_name %></h5>
             <p><%= f.receiver.first_name %> <%= f.receiver.last_name %></p>
             <%= link_to friendship_path(f),
-                  data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
+                  data: { turbo_method: :delete, turbo_confirm: "Tem certeza?", data: {turbo: false}},
                   class: "bt-icon-danger",
                   alt: "Excluir Amigo" do %>
               <i class="fa-solid fa-trash-can"></i>
@@ -80,22 +82,6 @@
 
 
 <%# CHAT MODAL V-centered + scroll%>
-<div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <%# nick da pessoa %>
-          <h5 id="nickHeader" data-chat-target="messageBox">AQUI</h5>
-        </div>
-        <div class="modal-body">
-          <%# content / mensagens %>
-          <%# input %> <%# send %>
-        </div>
-          <div class="modal-footer">
-          </div>
-      </div>
-  </div>
-</div>
 
 <div class="container">
     <%= link_to "Voltar", :back, class: "btn-ghost" %>

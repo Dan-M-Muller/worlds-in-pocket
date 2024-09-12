@@ -1,0 +1,15 @@
+:root {
+  --animation-time: 2s;
+}
+
+@keyframes neon {
+  0% {
+    color: $cold-dark;
+  } 100% {
+    color: $blue;
+  }
+}
+
+#neon {
+  animation: neon var(--animation-time) ease alternate infinite;
+}
