@@ -1,6 +1,12 @@
 class ProfilesController < ApplicationController
   def show
     @user = current_user
+    @plays = []
+    @user.players.each do |p|
+      @plays << p.game
+    end
+    # raise
+    return @plays
   end
 
   def edit

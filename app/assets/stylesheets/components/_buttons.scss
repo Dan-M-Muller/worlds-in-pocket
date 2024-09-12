@@ -9,6 +9,14 @@
   text-decoration: none;
 }
 
+.margin-l {
+  margin-left: 20px;
+}
+
+.margin-b {
+  margin-bottom: 20px;
+}
+
 .btn-ghost:hover {
   background: $cold-dark;
   color: $white;
@@ -77,6 +85,24 @@
   background: linear-gradient($cold-light, $cold-dark);
   color: $white;
 }
+
+.btn-assist {
+  color: $warm-dark;
+  font-weight: bolder;
+  border: 1px solid $cold-dark;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  padding-right: 12px;
+  padding-left: 12px;
+  border-radius: 15px;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+.btn-assist:hover {
+  color: $warm-light;
+}
+
+
 
 .btn-danger {
   color: $white;
