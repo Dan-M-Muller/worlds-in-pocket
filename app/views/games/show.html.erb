@@ -14,7 +14,7 @@
   <h4>Narrador: <%= @game.user.nick_name %></h4>
   <% if current_user.id.in?(@game_players) %>
     <%= link_to "Conversas", chat_game_path(@game), class: "btn-gradient" %>
-     
+
     <%= link_to "🧙‍♂️ Assistente 🤖", assistants_path, class: "btn-assist", id: "neon" %>
   <% end %>
 
@@ -55,7 +55,7 @@
     <%= link_to "Voltar", games_path,  class: "btn-ghost"  %>
   </div>
 </div>
-
+</div>
 
 <%# MODAL %>
 <div class="modal fade" id="inviteModal" tabindex="-1" aria-labelledby="inviteModalLabel" aria-hidden="true">
