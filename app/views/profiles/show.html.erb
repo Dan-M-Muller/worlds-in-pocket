@@ -1,10 +1,12 @@
-<div class="container mt-3">
-  <h1>Página de Perfil</h1>
+<div class="container margin-t">
+  <h1>Meu Perfil</h1>
+  <div class="container margin-t">
+      <%= link_to "Voltar", :back, class: "btn-ghost" %>
+  </div>
 </div>
-
 <nav>
   <div class="nav nav-tabs mt-5" id="nav-tab" role="tablist">
-    <button class="nav-link active" id="nav-games-tab" data-bs-toggle="tab" data-bs-target="#nav-games" type="button" role="tab" aria-controls="nav-games" aria-selected="true">Meus Jogos</button>
+    <button class="nav-link active" id="nav-games-tab" data-bs-toggle="tab" data-bs-target="#nav-games" type="button" role="tab" aria-controls="nav-games" aria-selected="true">Meus Grupos</button>
     <%# <button class="nav-link" id="nav-sheets-tab" data-bs-toggle="tab" data-bs-target="#nav-sheets" type="button" role="tab" aria-controls="nav-sheets" aria-selected="true">Minhas Fichas</button> %>
     <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Configurações</button>
   </div>
@@ -44,8 +46,8 @@
         </div>
         <div class="container mb-4">
           <p>Nome completo : <%= @user.first_name %> <%= @user.last_name %></p>
-          <%= link_to "Edite seus dados", edit_profile_path, class: "btn-ghost" %>
-          <%= link_to "Atualize sua senha", edit_user_password_path, class: "btn-ghost" %>
+          <%= link_to "Edite seus dados", edit_profile_path, class: "btn-flat" %>
+          <%= link_to "Atualize sua senha", edit_user_password_path, class: "btn-flat" %>
         </div>
       </div>
     </div>
@@ -56,8 +58,3 @@
   <%# <%= link_to 'Editar Perfil', edit_user_registration_path, class: 'btn btn-primary' %>
   <%# <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-' %>
 <%# </div> %>
-
-
-<div class="container">
-    <%= link_to "Voltar", :back, class: "btn-ghost" %>
-</div>

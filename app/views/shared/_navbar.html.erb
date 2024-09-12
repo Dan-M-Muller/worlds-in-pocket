@@ -19,7 +19,7 @@
               <%= link_to pending_players_path, class: "nav-link"  do %>
               <%# Turbo Frame pra notificações aparecerem sem recarregar %>
                   <% if current_user.pending? || current_user.requests? %>
-                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <i class="fa-solid fa-circle-exclamation bt-icon-danger"></i>
                   <% end %>
                     Notificações
               <% end %>

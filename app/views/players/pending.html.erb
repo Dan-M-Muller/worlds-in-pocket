@@ -1,6 +1,9 @@
 <div class="container mt-3">
   <h1>Convites Pendentes</h1>
 </div>
+<div class="container">
+    <%= link_to "Voltar", :back, class: "btn-ghost" %>
+</div>
 <div class="container mt-3">
   <div class="card" style="width: 36rem;">
     <h3>Convites para Grupos</h3>
@@ -8,12 +11,12 @@
       <ul class="list-group">
       <% @players.each do |p| %>
         <li class="list-group-item">
-          <h5><%= p.game.user.first_name %></h5> <p> Te convidou para o grupo <strong><%= p.game.name %><strong></p>
-          <%= link_to "Aceitar",  accept_player_path(p), class: "btn",  data: {turbo_method: :patch} %>
+          <h5><%= p.game.user.first_name %> (<%= p.game.user.nick_name %>)</h5> <p> Te convidou para o grupo <strong><%= p.game.name %><strong></p>
+          <%= link_to "Aceitar",  accept_player_path(p), class: "btn-flat",  data: {turbo_method: :patch} %>
           <%= link_to "Rejeitar",
                   player_path(p),
                   data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
-                  class: "btn btn-warning"%>
+                  class: "btn-danger"%>
         </li>
       <% end %>
       </ul>
@@ -27,18 +30,15 @@
       <% @friends.each do |f| %>
         <li class="list-group-item">
           <h5><%= f.asker.first_name %></h5><p>(<%= f.asker.nick_name %>) quer sua amizade</p>
-          <%= link_to "Aceitar",  accept_friendship_path(f), class: "btn",
+          <%= link_to "Aceitar",  accept_friendship_path(f), class: "btn-flat",
                   data: {turbo_method: :patch, turbo_confirm: "Tem certeza?"} %>
           <%= link_to "Rejeitar",
                   friendship_path(f),
                   data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"},
-                  class: "btn btn-warning" %>
+                  class: "btn-danger " %>
         </li>
       <% end %>
       </ul>
     </div>
   </div>
-</div>
-<div class="container">
-    <%= link_to "Voltar", :back, class: "btn-ghost" %>
 </div>
