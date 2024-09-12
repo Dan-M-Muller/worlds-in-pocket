@@ -43,7 +43,7 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship.destroy
-    redirect_back fallback_location: '/'
+    redirect_to user_friendships_path(current_user)
   end
 
 
