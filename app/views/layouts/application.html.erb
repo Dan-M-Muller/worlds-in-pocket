@@ -10,10 +10,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body data-current-user-id="<%= current_user ? current_user.id : "" %>">
+  <body class="d-flex flex-column min-vh-100" data-current-user-id="<%= current_user ? current_user.id : "" %>">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>

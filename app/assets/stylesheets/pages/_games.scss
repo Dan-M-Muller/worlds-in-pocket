@@ -1,0 +1,9 @@
+.games-show-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.fallback-img{
+  width: 200px;
+  height: 150px;
+}
