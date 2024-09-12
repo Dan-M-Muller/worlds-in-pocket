@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: worlds_in_pocket_production
+  database: <%= ENV["WORLDS_IN_POCKET_DATABASE_URL"] %>
   username: worlds_in_pocket
   password: <%= ENV["WORLDS_IN_POCKET_DATABASE_PASSWORD"] %>
