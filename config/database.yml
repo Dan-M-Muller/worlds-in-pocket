@@ -82,3 +82,4 @@ production:
   database: worlds_in_pocket_production
   username: worlds_in_pocket
   password: <%= ENV["WORLDS_IN_POCKET_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
