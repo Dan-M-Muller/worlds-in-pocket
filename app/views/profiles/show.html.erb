@@ -5,7 +5,7 @@
 <nav>
   <div class="nav nav-tabs mt-5" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-games-tab" data-bs-toggle="tab" data-bs-target="#nav-games" type="button" role="tab" aria-controls="nav-games" aria-selected="true">Meus Jogos</button>
-    <button class="nav-link" id="nav-sheets-tab" data-bs-toggle="tab" data-bs-target="#nav-sheets" type="button" role="tab" aria-controls="nav-sheets" aria-selected="true">Minhas Fichas</button>
+    <%# <button class="nav-link" id="nav-sheets-tab" data-bs-toggle="tab" data-bs-target="#nav-sheets" type="button" role="tab" aria-controls="nav-sheets" aria-selected="true">Minhas Fichas</button> %>
     <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Configurações</button>
   </div>
 </nav>
@@ -15,13 +15,13 @@
   <div class="tab-pane fade show active" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
     <div class="container m-5 ">
       <div class="card card-bls">
-        <% @user.games.each do |g| %>
+        <% @plays.each do |p| %>
           <div class="card card-bls mb-3">
             <div class="card-header">
-              <h4 class="card-title"><%= link_to g.name, game_path(g) %></h4>
+              <h4 class="card-title"><%= link_to p.name, game_path(p) %></h4>
             </div>
             <div class="card-body">
-              <p><%= g.description %></p>
+              <p><%= p.description %></p>
             </div>
           </div>
         <% end %>
@@ -30,8 +30,8 @@
   </div>
 
     <%# tab de fichas %>
-  <div class="container mt-3 tab-pane fade show active" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
-  </div>
+<%#   <div class="container mt-3 tab-pane fade show active" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
+  </div> %>
 
     <%# tab de configs %>
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">

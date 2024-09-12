@@ -14,15 +14,10 @@
   <h4>Narrador: <%= @game.user.nick_name %></h4>
   <% if current_user.id.in?(@game_players) %>
     <%= link_to "Conversas", chat_game_path(@game), class: "btn-gradient" %>
-    <%= link_to "Assistente", assistants_path, class: "btn-index" %>
+     
+    <%= link_to "🧙‍♂️ Assistente 🤖", assistants_path, class: "btn-assist", id: "neon" %>
   <% end %>
-  </div>
-  <% if @game.photo.key? %>
-    <%= cl_image_tag @game.photo.key, height: 150, width: 200, crop: :fill %>
-  <% else %>
-    <%= image_tag "magikarp.png", class: "fallback-img" %>
-  <% end %>
-    </div>
+
     <hr>
   <div class="card mt-3 mb-3" style="width: 50rem;">
     <div class="card-header">
@@ -46,7 +41,7 @@
             <i class="fa-solid fa-trash-can"></i>
           <% end %>
         <% end %>
-    <% end %>
+      <% end %>
     </div>
   </div>
   <% if current_user == @game.user %>
@@ -54,8 +49,7 @@
     <%= link_to "Delete este jogo",
       game_path(@game),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class: "btn btn-flat"
-    %>
+      class: "btn-danger" %>
   <% end %>
   <p></p>
     <%= link_to "Voltar", games_path,  class: "btn-ghost"  %>
