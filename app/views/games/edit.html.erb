@@ -2,6 +2,7 @@
   <%= simple_form_for(@game) do |f| %>
     <%= f.input :name, label: "New Name:", placeholder: @game.name %>
     <%= f.input :description, label: "New Description:", placeholder: @game.description %>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit, class: "btn btn-ghost m-2" %>
   <% end %>
 </div>
