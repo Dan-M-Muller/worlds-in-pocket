@@ -1,60 +1,64 @@
 <div class="container mt-3">
-<div class="games-show-grid">
-  <div>
-  <h1>
-    <%= @game.name %>
-    <% if @game.user == current_user %>
-      <%= link_to edit_game_path(@game),
-      class: "btn-icon-flat" do %>
-        <i class="fa-solid fa-gear"></i>
-      <% end %>
-    <% end %>
-  </h1>
-  <h3><%= @game.description %></h3>
-  <h4>Narrador: <%= @game.user.nick_name %></h4>
-  <% if current_user.id.in?(@game_players) %>
-    <%= link_to "Conversas", chat_game_path(@game), class: "btn-gradient" %>
-
-    <%= link_to "🧙‍♂️ Assistente 🤖", assistants_path, class: "btn-assist", id: "neon" %>
-  <% end %>
-
-    <hr>
-  <div class="card mt-3 mb-3" style="width: 50rem;">
-    <div class="card-header">
-      <div class="container mt-3">
-      </div>
-      <% @game.players.each do |p|%>
-        <h5 class="card-title"><%= p.user.nick_name %> (<%= p.user.first_name %>)
-          <% if p.accepted == false %>
-            [Ainda não aceitou o convite]
-          <% end %>
-          <% if p.user == p.game.user %>
-            <i class="fa-brands fa-web-awesome"></i>
-          <% end %>
-        </h5>
-
-        <% if current_user == @game.user %>
-          <%= link_to player_path(p),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-            class: "bt-icon-danger",
-            alt: "Delete Button" do %>
-            <i class="fa-solid fa-trash-can"></i>
+  <div class="games-show-grid">
+    <div>
+      <h1>
+        <%= @game.name %>
+        <% if @game.user == current_user %>
+          <%= link_to edit_game_path(@game),
+          class: "btn-icon-flat" do %>
+            <i class="fa-solid fa-gear"></i>
           <% end %>
         <% end %>
+      </h1>
+      <h3><%= @game.description %></h3>
+      <h4>Narrador: <%= @game.user.nick_name %></h4>
+      <% if current_user.id.in?(@game_players) %>
+        <%= link_to "Conversas", chat_game_path(@game), class: "btn-gradient" %>
+
+        <%= link_to "🧙‍♂️ Assistente 🤖", assistants_path, class: "btn-assist", id: "neon" %>
       <% end %>
     </div>
-  </div>
-  <% if current_user == @game.user %>
-    <button type="button" class="btn btn-gradient" data-bs-toggle="modal" data-bs-target="#inviteModal">Convidar para este jogo</button>
-    <%= link_to "Delete este jogo",
-      game_path(@game),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class: "btn-danger" %>
+  <% if @game.photo.key? %>
+    <%= cl_image_tag @game.photo.key, height: 150, width: 200, crop: :fill %>
+  <% else %>
+    <%= image_tag "magikarp.png", class: "fallback-img" %>
   <% end %>
-  <p></p>
-    <%= link_to "Voltar", games_path,  class: "btn-ghost"  %>
   </div>
-</div>
+
+      <hr>
+      <div class="card mt-3 mb-3" style="width: 50rem;">
+        <div class="card-header">
+          <% @game.players.each do |p|%>
+            <h5 class="card-title"><%= p.user.nick_name %> (<%= p.user.first_name %>)
+              <% if p.accepted == false %>
+                [Ainda não aceitou o convite]
+              <% end %>
+              <% if p.user == p.game.user %>
+                <i class="fa-brands fa-web-awesome"></i>
+              <% end %>
+            </h5>
+
+            <% if current_user == @game.user %>
+              <%= link_to player_path(p),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                class: "bt-icon-danger",
+                alt: "Delete Button" do %>
+                <i class="fa-solid fa-trash-can"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <% if current_user == @game.user %>
+        <button type="button" class="btn btn-gradient" data-bs-toggle="modal" data-bs-target="#inviteModal">Convidar para este jogo</button>
+        <%= link_to "Delete este jogo",
+          game_path(@game),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "btn-danger" %>
+      <% end %>
+      <p></p>
+      <%= link_to "Voltar", games_path,  class: "btn-ghost"  %>
+
 </div>
 
 <%# MODAL %>
