@@ -1,12 +1,12 @@
 <div class="container chatbot">
   <h1>O Mago da 4ª Parade lhe aguarda</h1>
-  <div id="assistants">
+  <div id="question" class="question">
     <%= render @assistants %>
   </div>
 
   <%= render "form", assistant: @assistant %>
-<div class="container m-3">
-  <%= link_to "Voltar", :back, class: "btn btn-flat" %>
-</div>
 
+  <div class="container m-3">
+    <%= link_to "Voltar", :back, class: "btn-ghost" %>
+  </div>
 </div>
