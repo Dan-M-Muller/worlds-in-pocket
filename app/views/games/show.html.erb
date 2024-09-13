@@ -10,8 +10,8 @@
           <% end %>
         <% end %>
       </h1>
-      <h3><%= @game.description %></h3>
-      <h4>Narrador: <%= @game.user.nick_name %></h4>
+      <h4 class="description"><%= @game.description %></h4>
+      <h5>Narrador: <%= @game.user.nick_name %></h5>
       <% if current_user.id.in?(@game_players) %>
         <%= link_to "Conversas", chat_game_path(@game), class: "btn-gradient" %>
 
@@ -21,7 +21,7 @@
   <% if @game.photo.key? %>
     <%= cl_image_tag @game.photo.key, height: 150, width: 200, crop: :fill %>
   <% else %>
-    <%= image_tag "magikarp.png", class: "fallback-img" %>
+    <%= image_tag "card-placeholder.jpeg", class: "fallback-img" %>
   <% end %>
   </div>
 
@@ -73,7 +73,7 @@
         <%= render "players/invite_form", game: @game, player: @player %>
       </div>
       <div class="modal-footer">
-        <%=  invite_game_url %>
+        <%#  invite_game_url %>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
